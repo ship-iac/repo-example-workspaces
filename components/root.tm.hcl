@@ -25,7 +25,9 @@ generate_hcl "_providers.tf" {
 # required vars here would break `tofu plan -input=false`.
 generate_hcl "_main.tf" {
   content {
-    resource "random_pet" "this" {}
+    resource "random_pet" "this" {
+      keepers = { version = "2" }
+    }
     output "name" { value = random_pet.this.id }
   }
 }
