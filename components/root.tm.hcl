@@ -18,24 +18,24 @@ generate_hcl "_providers.tf" {
     }
   }
 }
-generate_hcl "_variables.tf" {
-  content {
-    variable "env" { type = string }
-    variable "region" { type = string }
-  }
-}
+# No _variables.tf: this flavor selects the env via the OpenTofu workspace, not
+# tofu variables. The workspace is chosen by the TF_WORKSPACE env var (set per
+# GitHub Environment) — OpenTofu auto-selects and auto-creates it, so the base
+# plan/apply scripts below need no `workspace select` step. Declaring unused
+# required vars here would break `tofu plan -input=false`.
 generate_hcl "_main.tf" {
   content {
     resource "random_pet" "this" {}
     output "name" { value = random_pet.this.id }
   }
 }
-# BASE scripts: no workspace step (overridden below)
+# Plan/apply scripts. No `tofu workspace select` step: TF_WORKSPACE (from the
+# GitHub Environment) tells OpenTofu which workspace to use, auto-creating it.
 script "plan" {
-  description = "plan (base)"
+  description = "plan"
   job { commands = [["tofu","init","-input=false"],["tofu","plan","-input=false","-lock=false","-out=stack.otplan"]] }
 }
 script "apply" {
-  description = "apply (base)"
+  description = "apply"
   job { commands = [["tofu","init","-input=false"],["tofu","apply","-input=false","-lock=false","-auto-approve","stack.otplan"]] }
 }
