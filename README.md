@@ -28,9 +28,6 @@ one environment's reviewed plan can never be applied against another's.
 - Terramate 0.17.1
 - OpenTofu 1.12.4
 
-Windows/PowerShell PATH and other local-machine notes live in the workspace
-root `README.md`, not here.
-
 ## Layout
 
 ```
@@ -43,7 +40,7 @@ terramate.tm.hcl     # experiments = ["scripts"]
 Env membership is carried by Terramate **tags** (`env/dev-eu`, `env/dev-us`) —
 the same slash-form convention as the other sample repos.
 
-## Fresh-clone walkthrough (Linux / macOS)
+## Fresh-clone walkthrough
 
 ```bash
 terramate generate                       # codegen into components/app
@@ -59,8 +56,7 @@ tofu workspace show                      # -> dev-eu
 Switch environments by changing `TF_WORKSPACE` (e.g. `dev-us`) — no code or
 workflow change, matching shipmate's dynamic-env model.
 
-> **Windows (PowerShell):** `$env:TF_WORKSPACE = "dev-eu"` instead of `export`,
-> and refresh PATH first — see the workspace-root `README.md`.
+> **Windows (PowerShell):** `$env:TF_WORKSPACE = "dev-eu"` instead of `export`.
 
 ## License
 
