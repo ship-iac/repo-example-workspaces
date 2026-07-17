@@ -3,3 +3,4 @@
 terraform.tfstate.d/
 *.tfstate*
 *.otplan
+fingerprint.txt
