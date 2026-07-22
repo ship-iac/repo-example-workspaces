@@ -7,7 +7,7 @@ environments modeled as OpenTofu
 rather than separate stacks or folders. Null resources only, local backend,
 **zero cloud credentials**.
 
-The engine and its three workflows (`preview.yml` / `deploy.yml` / `drift.yml`)
+The engine and its three workflows (`plan.yml` / `deploy.yml` / `drift.yml`)
 are identical to the other sample repos — only the env-injection mechanism
 differs. That's the point: the same actions drive all three layouts.
 
