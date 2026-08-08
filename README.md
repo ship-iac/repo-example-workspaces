@@ -15,7 +15,7 @@ differs. That's the point: the same actions drive all three layouts.
 
 The environment is chosen by the **`TF_WORKSPACE`** environment variable, set
 per GitHub Environment (`dev-eu`, `dev-us`). OpenTofu reads it, auto-selects the
-named workspace, and auto-creates it on first use — so the plan/apply scripts
+named workspace, and auto-creates it on first use — so the engine's commands
 need no `tofu workspace select` step and stay byte-identical to the other
 flavors. State lives under `terraform.tfstate.d/<workspace>/`.
 
@@ -32,9 +32,9 @@ one environment's reviewed plan can never be applied against another's.
 
 ```
 components/
-  root.tm.hcl        # codegen (empty local backend, providers, main) + plan/apply scripts
+  root.tm.hcl        # codegen (empty local backend, providers, main)
   app/               # one component stack (tagged env/dev-eu, env/dev-us)
-terramate.tm.hcl     # experiments = ["scripts"]
+terramate.tm.hcl     # project root marker
 ```
 
 Env membership is carried by Terramate **tags** (`env/dev-eu`, `env/dev-us`) —
