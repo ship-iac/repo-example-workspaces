@@ -1,3 +1,7 @@
+globals {
+  version = "1"
+}
+
 generate_hcl "_backend.tf" {
   content {
     # workspace-scoped local state (terraform.tfstate.d/<ws>)
@@ -25,7 +29,9 @@ generate_hcl "_providers.tf" {
 # required vars here would break `tofu plan -input=false`.
 generate_hcl "_main.tf" {
   content {
-    resource "random_pet" "this" {}
+    resource "random_pet" "this" {
+      keepers = { version = global.version }
+    }
     output "name" { value = random_pet.this.id }
   }
 }
