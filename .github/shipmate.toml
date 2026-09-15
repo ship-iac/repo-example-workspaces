@@ -1,0 +1,5 @@
+# Workspace-per-environment: the layout derives `TF_WORKSPACE` from each
+# environment's own name. A table declaring only `layout` is complete --
+# `environments` entries exist to carry a region or a cloud role, and this
+# repository needs neither.
+layout = "workspace"
