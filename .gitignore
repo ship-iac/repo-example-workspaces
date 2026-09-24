@@ -5,3 +5,4 @@ terraform.tfstate.d/
 *.otplan
 fingerprint.txt
 planned-head.txt
+.shipmate-engine/
