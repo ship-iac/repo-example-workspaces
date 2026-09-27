@@ -1,3 +1,5 @@
+schema_version = 1
+
 # Workspace-per-environment: the layout derives `TF_WORKSPACE` from each
 # environment's own name. A table declaring only `layout` is complete --
 # `environments` entries exist to carry a region, a cloud role or `shared`.
@@ -6,7 +8,7 @@ layout = "workspace"
 # Who may drive shipmate by pull-request comment. Every repository declares its own
 # team: the engine reads this file and no repository variable.
 [gate]
-approvers_team = "deployers"
+approver_team = "deployers"
 
 # Both environments bind one bare GitHub Environment on the plan and apply paths.
 [environments.dev-eu]
