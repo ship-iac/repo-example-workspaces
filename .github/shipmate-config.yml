@@ -1,0 +1,11 @@
+# Workspace-per-environment: the layout derives `TF_WORKSPACE` from each
+# environment's own name. A file declaring only `layout` is complete --
+# `environments` entries exist to carry a region, a cloud role or `shared`.
+layout: workspace
+
+# Both environments bind one bare GitHub Environment on the plan and apply paths.
+environments:
+  dev-eu:
+    shared: true
+  dev-us:
+    shared: true
