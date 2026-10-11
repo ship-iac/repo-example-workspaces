@@ -13,7 +13,7 @@ on:
     branches: [main]
   workflow_dispatch:
     inputs:
-      # Every input is optional except the verb, and that is deliberate: one schema serves
+      # Every input is optional except the verb (probe), and that is deliberate: one schema serves
       # three verbs, and GitHub reads an empty value for a `required: true` input as not
       # provided and answers HTTP 422 before the run starts. The engine validates instead —
       # `pr-facts` refuses a plan with no number, `apply-detect` an apply with no ref.
