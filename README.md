@@ -36,7 +36,7 @@ one environment's reviewed plan can never be applied against another's.
 ## Toolchain
 
 - Terramate 0.17.1
-- OpenTofu 1.12.4
+- OpenTofu 1.13.1
 
 ## Layout
 
